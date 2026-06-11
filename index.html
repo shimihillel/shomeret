@@ -68,10 +68,10 @@ textarea.input{min-height:92px;resize:vertical;line-height:1.45}
 .imageNoteWrap{display:none;margin-top:10px}
 .previewTiny{width:100%;max-height:190px;object-fit:cover;border-radius:18px;border:1px solid var(--line);margin-bottom:10px}
 </style></head><body><div id="app"><section id="s-today" class="screen active"></section><section id="s-add" class="screen"></section><section id="s-trend" class="screen"></section><section id="s-me" class="screen"></section></div><button id="fab" class="fab" onclick="goAdd()">+</button><nav><button class="nav active" data-s="today" onclick="show('today')"><span class="ico">☀️</span>היום</button><button class="nav" data-s="add" onclick="goAdd()"><span class="ico">＋</span>הוספה</button><button class="nav" data-s="trend" onclick="show('trend')"><span class="ico">↗</span>מגמה</button><button class="nav" data-s="me" onclick="show('me')"><span class="ico">♡</span>שלי</button></nav><div id="toast" class="toast"></div><div id="sheet" class="sheetwrap" onclick="if(event.target.id==='sheet')hideSheet()"><div id="sheetbody" class="sheet" onclick="event.stopPropagation()"></div></div><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script><script>
-const SEED = [{"id": "seed-0", "name": "קפה חם", "cal": 10.0, "prot": 0.0, "emoji": "☕", "category": "קפה ושתייה", "order": 0, "verified": true}, {"id": "seed-1", "name": "קפה קר", "cal": 40.0, "prot": 1.0, "emoji": "☕", "category": "קפה ושתייה", "order": 1, "verified": true}, {"id": "seed-2", "name": "פריכית + חמ\"ב + דבש", "cal": 65.0, "prot": 4.0, "emoji": "🍎", "category": "בוקר / קטן ליד הקפה", "order": 2, "verified": true}, {"id": "seed-3", "name": "פריכית + נוטלה", "cal": 50.0, "prot": 1.0, "emoji": "🍎", "category": "בוקר / קטן ליד הקפה", "order": 3, "verified": true}, {"id": "seed-4", "name": "ארוחת בורגר בפיתה", "cal": 334.0, "prot": 28.0, "emoji": "☕", "category": "קפה ושתייה", "order": 4, "verified": true}, {"id": "seed-5", "name": "ארוחת פיתה תירס", "cal": 259.0, "prot": 22.0, "emoji": "☕", "category": "קפה ושתייה", "order": 5, "verified": true}, {"id": "seed-6", "name": "חטיף תמר קוקוס", "cal": 109.0, "prot": 2.0, "emoji": "🥨", "category": "בוקר / קטן ליד הקפה", "order": 6, "verified": true}, {"id": "seed-7", "name": "שלגון סניקרס", "cal": 220.0, "prot": 3.0, "emoji": "🍫", "category": "מתוקים וחטיפים", "order": 7, "verified": true}, {"id": "seed-8", "name": "שלגון פירות יער", "cal": 99.0, "prot": 1.0, "emoji": "🍫", "category": "מתוקים וחטיפים", "order": 8, "verified": true}, {"id": "seed-9", "name": "יין Carmel Sparkling BUZZ כוס", "cal": 135.0, "prot": 0.0, "emoji": "🥤", "category": "קפה ושתייה", "order": 9, "verified": true}, {"id": "seed-10", "name": "משמש", "cal": 17.0, "prot": 0.5, "emoji": "🍎", "category": "בוקר / קטן ליד הקפה", "order": 10, "verified": true}, {"id": "seed-11", "name": "חטיף פיטנס פירות יער", "cal": 94.0, "prot": 2.0, "emoji": "🥨", "category": "בוקר / קטן ליד הקפה", "order": 11, "verified": true}];
-const KEY="shomeret-v6-data";
+const SEED = [{"id": "curated-0", "name": "קפה קר", "cal": 40, "prot": 1, "emoji": "☕", "category": "קפה ושתייה", "order": 0, "verified": true}, {"id": "curated-1", "name": "קפה חם", "cal": 10, "prot": 0, "emoji": "☕", "category": "קפה ושתייה", "order": 1, "verified": true}, {"id": "curated-2", "name": "כוס מיץ תפוזים סחוט", "cal": 80, "prot": 1, "emoji": "🍊", "category": "קפה ושתייה", "order": 2, "verified": true}, {"id": "curated-3", "name": "כוס יין באז", "cal": 135, "prot": 0, "emoji": "🥂", "category": "קפה ושתייה", "order": 3, "verified": true}, {"id": "curated-4", "name": "חטיף פיטנס פירות יער", "cal": 94, "prot": 2, "emoji": "🥨", "category": "ליד הקפה", "order": 0, "verified": true}, {"id": "curated-5", "name": "חטיף קורני בננה", "cal": 108, "prot": 2, "emoji": "🍌", "category": "ליד הקפה", "order": 1, "verified": true}, {"id": "curated-6", "name": "חטיף תמר קוקוס", "cal": 109, "prot": 2, "emoji": "🌴", "category": "ליד הקפה", "order": 2, "verified": true}, {"id": "curated-7", "name": "פריכית עם נוטלה", "cal": 50, "prot": 1, "emoji": "🍫", "category": "ליד הקפה", "order": 3, "verified": true}, {"id": "curated-8", "name": "פריכית עם חמ״ב ודבש", "cal": 65, "prot": 4, "emoji": "🍯", "category": "ליד הקפה", "order": 4, "verified": true}, {"id": "curated-9", "name": "פיתה בורגר", "cal": 334, "prot": 28, "emoji": "🥙", "category": "ארוחות קבועות", "order": 0, "verified": true}, {"id": "curated-10", "name": "פיתה תירס", "cal": 259, "prot": 22, "emoji": "🌽", "category": "ארוחות קבועות", "order": 1, "verified": true}, {"id": "curated-11", "name": "פרוסת לחם חלבון עם חומוס ומטבוחה", "cal": 100, "prot": 6, "emoji": "🍞", "category": "ארוחות קבועות", "order": 2, "verified": true}, {"id": "curated-12", "name": "שלגון פירות יער", "cal": 99, "prot": 1, "emoji": "🍓", "category": "קפואים", "order": 0, "verified": true}, {"id": "curated-13", "name": "שלגון סניקרס", "cal": 220, "prot": 3, "emoji": "🍦", "category": "קפואים", "order": 1, "verified": true}, {"id": "curated-14", "name": "גלידל בלונדי", "cal": 99, "prot": 2, "emoji": "🍨", "category": "קפואים", "order": 2, "verified": true}, {"id": "curated-15", "name": "גודיז אפרסק", "cal": 35, "prot": 0, "emoji": "🍑", "category": "קפואים", "order": 3, "verified": true}, {"id": "curated-16", "name": "משמש", "cal": 17, "prot": 0.5, "emoji": "🍑", "category": "פירות", "order": 0, "verified": true}, {"id": "curated-17", "name": "אשכול ענבים קטן", "cal": 60, "prot": 0.5, "emoji": "🍇", "category": "פירות", "order": 1, "verified": true}, {"id": "curated-18", "name": "10 חתיכות אבטיח קטנות", "cal": 35, "prot": 0.5, "emoji": "🍉", "category": "פירות", "order": 2, "verified": true}, {"id": "curated-19", "name": "5 חתיכות אננס קטנות", "cal": 30, "prot": 0.3, "emoji": "🍍", "category": "פירות", "order": 3, "verified": true}];
+const KEY="shomeret-v9-data";
 let CHARTS = {};
-const CATS=["קפה ושתייה","בוקר / קטן ליד הקפה","ארוחות קבועות","מתוקים וחטיפים","שמורים שלי"];
+const CATS=["קפה ושתייה", "ליד הקפה", "ארוחות קבועות", "קפואים", "פירות"];
 function uid(p="id"){return p+"-"+Math.random().toString(36).slice(2)+"-"+Date.now().toString(36)}
 function load(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
 function save(){localStorage.setItem(KEY,JSON.stringify(S))}
@@ -94,6 +94,15 @@ function oldImport(){
  localStorage.setItem(KEY,JSON.stringify(D));localStorage.setItem("shomeret-imported-v1","1");
 }
 oldImport();
+if(!localStorage.getItem(KEY) && localStorage.getItem("shomeret-v8-data")){
+ try{localStorage.setItem(KEY, localStorage.getItem("shomeret-v8-data"));}catch(e){}
+}
+if(!localStorage.getItem(KEY) && localStorage.getItem("shomeret-v7-data")){
+ try{localStorage.setItem(KEY, localStorage.getItem("shomeret-v7-data"));}catch(e){}
+}
+if(!localStorage.getItem(KEY) && localStorage.getItem("shomeret-v6-data")){
+ try{localStorage.setItem(KEY, localStorage.getItem("shomeret-v6-data"));}catch(e){}
+}
 if(!localStorage.getItem(KEY) && localStorage.getItem("shomeret-v5-data")){
  try{localStorage.setItem(KEY, localStorage.getItem("shomeret-v5-data"));}catch(e){}
 }
@@ -109,7 +118,23 @@ if(!localStorage.getItem(KEY) && localStorage.getItem("shomeret-v2-data")){
 if(!localStorage.getItem(KEY) && localStorage.getItem("shomeret-v1-data")){
  try{localStorage.setItem(KEY, localStorage.getItem("shomeret-v1-data"));}catch(e){}
 }
-let S=load(KEY,fresh()); if(!S.foods?.length)S.foods=SEED; if(!S.cats?.length)S.cats=CATS.map((name,i)=>({id:uid("cat"),name,order:i})); save();
+let S=load(KEY,fresh()); if(!S.foods?.length)S.foods=SEED; if(!S.cats?.length)S.cats=CATS.map((name,i)=>({id:uid("cat"),name,order:i})); applyCuratedFoods(); save();
+function applyCuratedFoods(){
+ const curated=[{"id": "curated-0", "name": "קפה קר", "cal": 40, "prot": 1, "emoji": "☕", "category": "קפה ושתייה", "order": 0, "verified": true}, {"id": "curated-1", "name": "קפה חם", "cal": 10, "prot": 0, "emoji": "☕", "category": "קפה ושתייה", "order": 1, "verified": true}, {"id": "curated-2", "name": "כוס מיץ תפוזים סחוט", "cal": 80, "prot": 1, "emoji": "🍊", "category": "קפה ושתייה", "order": 2, "verified": true}, {"id": "curated-3", "name": "כוס יין באז", "cal": 135, "prot": 0, "emoji": "🥂", "category": "קפה ושתייה", "order": 3, "verified": true}, {"id": "curated-4", "name": "חטיף פיטנס פירות יער", "cal": 94, "prot": 2, "emoji": "🥨", "category": "ליד הקפה", "order": 0, "verified": true}, {"id": "curated-5", "name": "חטיף קורני בננה", "cal": 108, "prot": 2, "emoji": "🍌", "category": "ליד הקפה", "order": 1, "verified": true}, {"id": "curated-6", "name": "חטיף תמר קוקוס", "cal": 109, "prot": 2, "emoji": "🌴", "category": "ליד הקפה", "order": 2, "verified": true}, {"id": "curated-7", "name": "פריכית עם נוטלה", "cal": 50, "prot": 1, "emoji": "🍫", "category": "ליד הקפה", "order": 3, "verified": true}, {"id": "curated-8", "name": "פריכית עם חמ״ב ודבש", "cal": 65, "prot": 4, "emoji": "🍯", "category": "ליד הקפה", "order": 4, "verified": true}, {"id": "curated-9", "name": "פיתה בורגר", "cal": 334, "prot": 28, "emoji": "🥙", "category": "ארוחות קבועות", "order": 0, "verified": true}, {"id": "curated-10", "name": "פיתה תירס", "cal": 259, "prot": 22, "emoji": "🌽", "category": "ארוחות קבועות", "order": 1, "verified": true}, {"id": "curated-11", "name": "פרוסת לחם חלבון עם חומוס ומטבוחה", "cal": 100, "prot": 6, "emoji": "🍞", "category": "ארוחות קבועות", "order": 2, "verified": true}, {"id": "curated-12", "name": "שלגון פירות יער", "cal": 99, "prot": 1, "emoji": "🍓", "category": "קפואים", "order": 0, "verified": true}, {"id": "curated-13", "name": "שלגון סניקרס", "cal": 220, "prot": 3, "emoji": "🍦", "category": "קפואים", "order": 1, "verified": true}, {"id": "curated-14", "name": "גלידל בלונדי", "cal": 99, "prot": 2, "emoji": "🍨", "category": "קפואים", "order": 2, "verified": true}, {"id": "curated-15", "name": "גודיז אפרסק", "cal": 35, "prot": 0, "emoji": "🍑", "category": "קפואים", "order": 3, "verified": true}, {"id": "curated-16", "name": "משמש", "cal": 17, "prot": 0.5, "emoji": "🍑", "category": "פירות", "order": 0, "verified": true}, {"id": "curated-17", "name": "אשכול ענבים קטן", "cal": 60, "prot": 0.5, "emoji": "🍇", "category": "פירות", "order": 1, "verified": true}, {"id": "curated-18", "name": "10 חתיכות אבטיח קטנות", "cal": 35, "prot": 0.5, "emoji": "🍉", "category": "פירות", "order": 2, "verified": true}, {"id": "curated-19", "name": "5 חתיכות אננס קטנות", "cal": 30, "prot": 0.3, "emoji": "🍍", "category": "פירות", "order": 3, "verified": true}];
+ const catNames=["קפה ושתייה", "ליד הקפה", "ארוחות קבועות", "קפואים", "פירות"];
+ S.cats=catNames.map((name,i)=>{
+   const existing=(S.cats||[]).find(c=>c.name===name);
+   return existing?{...existing,order:i}:{id:uid("cat"),name,order:i};
+ });
+ const validCats=new Set(catNames);
+ (S.foods||[]).forEach(f=>{if(!validCats.has(f.category))f.category=catNames[0];});
+ const curatedNames=new Set(curated.map(f=>f.name));
+ S.foods=(S.foods||[]).filter(f=>!curatedNames.has(f.name) && f.name!=="10 חתיכות אבטיח" && f.name!=="5 חתיכות אננס");
+ const prepared=curated.map((f,i)=>{return {...f,id:"curated-"+i,verified:true}});
+ S.foods=[...prepared,...S.foods];
+}
+
+
 function dayGoal(k=today()){return S.dailyGoals[k]||S.baseGoal||1100}
 function dayLog(k=today()){return S.logs[k]||[]}
 function calc(k=today()){return dayLog(k).reduce((a,e)=>({cal:a.cal+(+e.cal||0),prot:a.prot+(+e.prot||0)}),{cal:0,prot:0})}
@@ -164,6 +189,7 @@ function manualAdd(){const name=mName.value.trim(),cal=+mCal.value,prot=+mProt.v
 
 
 let selectedImageDataUrl="";
+let pendingCategorySave=null;
 function pickImage(mode){
  const inp=document.getElementById("imageInput");
  if(!inp)return;
@@ -343,8 +369,9 @@ function saveAiFavorite(){
  chooseAiFavoriteCategory();
 }
 function chooseAiFavoriteCategory(){
+ pendingCategorySave="ai";
  const opts=S.cats.sort((a,b)=>a.order-b.order).map(c=>`<button class=secondary style="width:100%;margin-bottom:8px;text-align:right" onclick="saveAiToCat('${c.id}')">${esc(c.name)}</button>`).join("");
- sheet(`<div class=shtitle>לאיזו קטגוריה לשמור?</div><div class=shsub>${esc(pendingAI.name)} · ${pendingAI.householdQuantity?esc(pendingAI.householdQuantity)+" · ":""}${n(pendingAI.calories)} קל׳ · ${n(pendingAI.protein)} חלבון</div>${opts}`);
+ sheet(`<div class=shtitle>לאיזו קטגוריה לשמור?</div><div class=shsub>${esc(pendingAI.name)} · ${pendingAI.householdQuantity?esc(pendingAI.householdQuantity)+" · ":""}${n(pendingAI.calories)} קל׳ · ${n(pendingAI.protein)} חלבון</div>${opts}<button class=primary style="width:100%;margin-top:6px" onclick="newCategoryForSave('ai')">+ קטגוריה חדשה</button>`);
 }
 function saveAiToCat(catId){
  const cat=S.cats.find(c=>c.id===catId);
@@ -356,13 +383,33 @@ function saveAiToCat(catId){
  hideSheet();render();toast(`${pendingAI.name} נשמר לקבועים`);
 }
 
+
+function newCategoryForSave(mode){
+ pendingCategorySave=mode||pendingCategorySave;
+ sheet(`<div class=shtitle>קטגוריה חדשה</div><div class=shsub>תני לה שם, ואז המאכל יישמר ישר לשם.</div><div class=form style="margin-top:10px"><input id=newCatName class=input placeholder="למשל: סלטים / ארוחות ערב / מתוקים"><button class=primary onclick=saveNewCategoryForPending()>צרי ושמרי לכאן</button><button class=secondary onclick="${pendingCategorySave==='ai'?'chooseAiFavoriteCategory()':'saveManualFavorite()'}">חזרה</button></div>`);
+ setTimeout(()=>document.getElementById("newCatName")?.focus(),80);
+}
+function saveNewCategoryForPending(){
+ const name=(document.getElementById("newCatName")?.value||"").trim();
+ if(!name){toast("צריך שם קטגוריה");return}
+ let cat=S.cats.find(c=>c.name===name);
+ if(!cat){
+  cat={id:uid("cat"),name,order:S.cats.length};
+  S.cats.push(cat);
+  save();
+ }
+ if(pendingCategorySave==="ai") saveAiToCat(cat.id);
+ else saveManualToCat(cat.id);
+}
+
 function saveManualFavorite(){
  const name=(document.getElementById("mName")?.value||"").trim();
  const cal=+document.getElementById("mCal")?.value;
  const prot=+document.getElementById("mProt")?.value||0;
  if(!name||!cal){toast("צריך שם וקלוריות כדי לשמור");return}
+ pendingCategorySave="manual";
  const opts=S.cats.sort((a,b)=>a.order-b.order).map(c=>`<button class=secondary style="width:100%;margin-bottom:8px;text-align:right" onclick="saveManualToCat('${c.id}')">${esc(c.name)}</button>`).join("");
- sheet(`<div class=shtitle>לאיזו קטגוריה לשמור?</div><div class=shsub>${esc(name)} · ${n(cal)} קל׳ · ${n(prot)} חלבון</div>${opts}`);
+ sheet(`<div class=shtitle>לאיזו קטגוריה לשמור?</div><div class=shsub>${esc(name)} · ${n(cal)} קל׳ · ${n(prot)} חלבון</div>${opts}<button class=primary style="width:100%;margin-top:6px" onclick="newCategoryForSave('manual')">+ קטגוריה חדשה</button>`);
 }
 function saveManualToCat(catId){
  const name=(document.getElementById("mName")?.value||"").trim();
