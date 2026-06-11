@@ -7,7 +7,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;ba
 .brand h1{font-size:32px;font-weight:900;line-height:1;color:#4a3028}.sub{font-size:13px;color:var(--muted);font-weight:700;margin-top:4px}.date{font-size:12px;color:var(--muted);font-weight:700;margin-top:5px}.head{margin-bottom:16px}
 .goalLine{font-size:13px;color:var(--muted);font-weight:800;margin:6px 0 13px}.link{border:none;background:none;color:var(--rust);font:inherit;font-weight:900}
 .card{background:rgba(255,250,245,.93);border:1px solid var(--line);border-radius:26px;padding:16px;margin-bottom:13px;box-shadow:var(--shadow);backdrop-filter:blur(8px)}.hero{padding:23px 20px 18px;border-radius:30px}.label{text-align:center;color:var(--muted);font-size:15px;font-weight:900}.remain{text-align:center;color:var(--rust);font-size:74px;line-height:.95;font-weight:900;letter-spacing:-2px;margin:8px 0}.substats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;color:var(--muted);font-weight:800;font-size:14px}.bar{height:9px;border-radius:99px;background:#efddd1;margin-top:17px;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--rust2),var(--rust));border-radius:99px}.fill.over{background:linear-gradient(90deg,#c96b63,var(--burg))}.over{display:none;text-align:center;color:var(--burg);font-weight:900;font-size:13px;margin-top:8px}
-.quickgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:13px}.quick{border:1px solid var(--line);background:var(--paper);border-radius:19px;padding:12px 8px;font-family:inherit;font-weight:900;color:#4a3028;box-shadow:var(--shadow)}.quick span{display:block;font-size:21px}.section{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.title{font-size:17px;font-weight:900;color:#4a3028}.small{border:none;border-radius:99px;background:var(--paper2);color:var(--rust);font-family:inherit;font-weight:900;padding:7px 12px}
+.quickgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:13px}.quick{border:1px solid var(--line);background:var(--paper);border-radius:19px;padding:12px 6px;font-family:inherit;font-weight:900;color:#4a3028;box-shadow:var(--shadow);font-size:12px}.quick span{display:block;font-size:21px}.section{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.title{font-size:17px;font-weight:900;color:#4a3028}.small{border:none;border-radius:99px;background:var(--paper2);color:var(--rust);font-family:inherit;font-weight:900;padding:7px 12px}
 .row{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:rgba(255,255,255,.55);border-radius:17px;padding:10px;margin-bottom:8px}.time{direction:ltr;font-size:11px;font-weight:900;color:var(--muted);min-width:38px;text-align:left}.emoji{width:34px;height:34px;border-radius:50%;background:var(--paper2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}.main{flex:1;min-width:0}.name{font-size:14px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{font-size:12px;color:var(--muted);font-weight:800}.badge{font-size:12px;font-weight:900;color:var(--rust);background:#f8e3d7;border-radius:99px;padding:4px 9px;white-space:nowrap}.del{border:none;background:none;color:var(--muted);font-size:19px}
 .actions{display:grid;grid-template-columns:1.35fr .95fr;gap:9px}.primary,.secondary,.quiet{border:none;border-radius:18px;padding:14px;font-family:inherit;font-weight:900;font-size:15px}.primary{background:var(--rust);color:white;box-shadow:0 9px 22px rgba(184,95,58,.25)}.secondary{background:var(--paper);color:#4a3028;border:1px solid var(--line)}.quiet{background:transparent;color:var(--muted);border:1px solid var(--line)}
 .fab{position:fixed;bottom:calc(75px + var(--safe));left:50%;transform:translateX(-50%);width:66px;height:66px;border-radius:50%;border:5px solid rgba(248,239,232,.95);background:var(--rust);color:#fff;font-size:38px;display:flex;align-items:center;justify-content:center;z-index:90;box-shadow:0 16px 32px rgba(58,37,31,.25)}.fab.hide{display:none}
@@ -67,6 +67,18 @@ textarea.input{min-height:92px;resize:vertical;line-height:1.45}
 .hiddenInput{display:none}
 .imageNoteWrap{display:none;margin-top:10px}
 .previewTiny{width:100%;max-height:190px;object-fit:cover;border-radius:18px;border:1px solid var(--line);margin-bottom:10px}
+
+.snackMoodGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.snackMood{border:1px solid var(--line);background:white;border-radius:18px;padding:15px 10px;font-family:inherit;font-weight:900;color:#4a3028;box-shadow:var(--shadow)}
+.snackMood span{display:block;font-size:23px;margin-bottom:2px}
+.snackList{display:grid;gap:9px;margin-top:12px}
+.snackCard{border:1px solid var(--line);background:rgba(255,255,255,.78);border-radius:20px;padding:13px;box-shadow:var(--shadow)}
+.snackTop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.snackName{font-weight:900;color:#4a3028;font-size:15px;line-height:1.25}
+.snackCal{font-weight:900;color:var(--rust);white-space:nowrap}
+.snackOver{display:inline-block;margin-top:8px;background:#f4dfd2;color:var(--rust);border-radius:99px;padding:4px 9px;font-size:12px;font-weight:900}
+.snackEmpty{text-align:center;padding:22px 10px;color:var(--muted);font-weight:900;line-height:1.45}
+
 </style></head><body><div id="app"><section id="s-today" class="screen active"></section><section id="s-add" class="screen"></section><section id="s-trend" class="screen"></section><section id="s-me" class="screen"></section></div><button id="fab" class="fab" onclick="goAdd()">+</button><nav><button class="nav active" data-s="today" onclick="show('today')"><span class="ico">☀️</span>היום</button><button class="nav" data-s="add" onclick="goAdd()"><span class="ico">＋</span>הוספה</button><button class="nav" data-s="trend" onclick="show('trend')"><span class="ico">↗</span>מגמה</button><button class="nav" data-s="me" onclick="show('me')"><span class="ico">♡</span>שלי</button></nav><div id="toast" class="toast"></div><div id="sheet" class="sheetwrap" onclick="if(event.target.id==='sheet')hideSheet()"><div id="sheetbody" class="sheet" onclick="event.stopPropagation()"></div></div><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script><script>
 const SEED = [{"id": "curated-0", "name": "קפה קר", "cal": 40, "prot": 1, "emoji": "☕", "category": "קפה ושתיה", "order": 0, "verified": true}, {"id": "curated-1", "name": "קפה חם", "cal": 10, "prot": 0, "emoji": "☕", "category": "קפה ושתיה", "order": 1, "verified": true}, {"id": "curated-2", "name": "כוס מיץ תפוזים סחוט", "cal": 80, "prot": 1, "emoji": "🍊", "category": "קפה ושתיה", "order": 2, "verified": true}, {"id": "curated-3", "name": "כוס יין באז", "cal": 135, "prot": 0, "emoji": "🥂", "category": "קפה ושתיה", "order": 3, "verified": true}, {"id": "curated-4", "name": "חטיף פיטנס פירות יער", "cal": 94, "prot": 2, "emoji": "🥨", "category": "ליד הקפה", "order": 0, "verified": true}, {"id": "curated-5", "name": "חטיף קורני בננה", "cal": 108, "prot": 2, "emoji": "🍌", "category": "ליד הקפה", "order": 1, "verified": true}, {"id": "curated-6", "name": "חטיף תמר קוקוס", "cal": 109, "prot": 2, "emoji": "🌴", "category": "ליד הקפה", "order": 2, "verified": true}, {"id": "curated-7", "name": "פריכית עם נוטלה", "cal": 50, "prot": 1, "emoji": "🍫", "category": "ליד הקפה", "order": 3, "verified": true}, {"id": "curated-8", "name": "פריכית עם חמ״ב ודבש", "cal": 65, "prot": 4, "emoji": "🍯", "category": "ליד הקפה", "order": 4, "verified": true}, {"id": "curated-9", "name": "פיתה בורגר", "cal": 334, "prot": 28, "emoji": "🥙", "category": "ארוחות קבועות", "order": 0, "verified": true}, {"id": "curated-10", "name": "פיתה תירס", "cal": 259, "prot": 22, "emoji": "🌽", "category": "ארוחות קבועות", "order": 1, "verified": true}, {"id": "curated-11", "name": "פרוסת לחם חלבון עם חומוס ומטבוחה", "cal": 100, "prot": 6, "emoji": "🍞", "category": "ארוחות קבועות", "order": 2, "verified": true}, {"id": "curated-12", "name": "שלגון פירות יער", "cal": 99, "prot": 1, "emoji": "🍓", "category": "קפואים", "order": 0, "verified": true}, {"id": "curated-13", "name": "שלגון סניקרס", "cal": 220, "prot": 3, "emoji": "🍦", "category": "קפואים", "order": 1, "verified": true}, {"id": "curated-14", "name": "גלידל בלונדי", "cal": 99, "prot": 2, "emoji": "🍨", "category": "קפואים", "order": 2, "verified": true}, {"id": "curated-15", "name": "גודיז אפרסק", "cal": 35, "prot": 0, "emoji": "🍑", "category": "קפואים", "order": 3, "verified": true}, {"id": "curated-16", "name": "שקית במבה קטנה", "cal": 134, "prot": 4, "emoji": "🥜", "category": "מלוח", "order": 0, "verified": true}, {"id": "curated-17", "name": "פופקורן חמאה ודבש", "cal": 94, "prot": 1, "emoji": "🍿", "category": "מלוח", "order": 1, "verified": true}, {"id": "curated-18", "name": "חצי שקית ביסלי", "cal": 180, "prot": 3.5, "emoji": "🥨", "category": "מלוח", "order": 2, "verified": true}, {"id": "curated-19", "name": "דוריטוס מיני", "cal": 132, "prot": 2, "emoji": "🔺", "category": "מלוח", "order": 3, "verified": true}, {"id": "curated-20", "name": "צ׳יטוס גבינה מיני", "cal": 165, "prot": 1.5, "emoji": "🧀", "category": "מלוח", "order": 4, "verified": true}, {"id": "curated-21", "name": "משמש", "cal": 17, "prot": 0.5, "emoji": "🍑", "category": "פירות", "order": 0, "verified": true}, {"id": "curated-22", "name": "אשכול ענבים קטן", "cal": 60, "prot": 0.5, "emoji": "🍇", "category": "פירות", "order": 1, "verified": true}, {"id": "curated-23", "name": "10 חתיכות אבטיח קטנות", "cal": 35, "prot": 0.5, "emoji": "🍉", "category": "פירות", "order": 2, "verified": true}, {"id": "curated-24", "name": "5 חתיכות אננס קטנות", "cal": 30, "prot": 0.3, "emoji": "🍍", "category": "פירות", "order": 3, "verified": true}];
 const KEY="shomeret-v11-data";
@@ -169,13 +181,131 @@ function goImageAdd(){
    if(card){card.scrollIntoView({behavior:"smooth",block:"center"});}
  },120);
 }
+
+function openNashnoshimi(){
+ if(!canAdd()){toast(closed()?"היום סגור. פתחי שוב כדי להוסיף.":"היום לא סופרים, אז אין הוספה.");return}
+ const rem=dayGoal()-calc().cal;
+ sheet(`<div class=shtitle>בואי נראה מה אפשר לאכול בלי להרוס את היום</div><div class=shsub>נשארו לך ${n(Math.max(0,rem))} קל׳</div><div class=snackMoodGrid><button class=snackMood onclick="showSnackIdeas('sweet')"><span>🍫</span>מתוק</button><button class=snackMood onclick="showSnackIdeas('salty')"><span>🥨</span>מלוח</button><button class=snackMood onclick="showSnackIdeas('coffee')"><span>☕</span>קפה ומשהו</button><button class=snackMood onclick="showSnackIdeas('any')"><span>✨</span>לא יודעת</button></div>`);
+}
+function snackCat(f){return String(f.category||"").trim()}
+function isMeal(f){return /ארוחות קבועות/.test(snackCat(f))}
+function isCoffee(f){return /קפה/.test(snackCat(f)) || /קפה|אספרסו|נס|קפוצ/.test(f.name||"")}
+function isSweet(f){
+ const c=snackCat(f), nm=f.name||"";
+ if(isMeal(f) || isCoffee(f))return false;
+ return /ליד הקפה|קפואים|פירות|מתוק|שוקולד|עוג|גליד|חטיף/.test(c) || /שוקולד|נוטלה|גליד|שלגון|עוג|פתיבר|דבש|קורני|פיטנס|תמר|פרי|משמש|ענבים|אבטיח|אננס|בננה|בלונדי/.test(nm);
+}
+function isSalty(f){
+ const c=snackCat(f), nm=f.name||"";
+ if(isMeal(f) || isCoffee(f))return false;
+ return /מלוח|חטיפים מלוחים/.test(c) || /במבה|ביסלי|דוריטוס|צ׳יטוס|פופקורן|מלוח|קרקר|בייגלה/.test(nm);
+}
+function snackBase(mood){
+ const foods=(S.foods||[]).filter(f=>f && f.name && +f.cal>0);
+ if(mood==="sweet")return foods.filter(isSweet);
+ if(mood==="salty")return foods.filter(isSalty);
+ if(mood==="any")return foods.filter(f=>!isMeal(f) && !isCoffee(f));
+ return [];
+}
+function cheapestCoffee(){
+ return (S.foods||[]).filter(f=>f && +f.cal>0 && isCoffee(f)).sort((a,b)=>(+a.cal||0)-(+b.cal||0))[0]||null;
+}
+function makeSuggestion(items,mood,rem){
+ const total=items.reduce((s,f)=>s+(+f.cal||0),0);
+ const over=total>rem;
+ const counts={};
+ items.forEach(f=>counts[f.id]=(counts[f.id]||0)+1);
+ const parts=Object.keys(counts).map(fid=>{
+   const f=items.find(x=>x.id===fid), q=counts[fid];
+   return q>1?`${f.name} ×${q}`:f.name;
+ });
+ return {id:uid("snack"),items,total,over,name:parts.join(" + "),mood};
+}
+function comboKey(items){
+ const counts={};
+ items.forEach(f=>counts[f.id]=(counts[f.id]||0)+1);
+ return Object.keys(counts).sort().map(k=>k+":"+counts[k]).join("|");
+}
+function snackIdeas(mood){
+ const rem=dayGoal()-calc().cal, limit=rem+50;
+ let candidates=[];
+ if(mood==="coffee"){
+   const coffee=cheapestCoffee();
+   const sweets=snackBase("sweet").filter(f=>(+f.cal||0)<=120).sort((a,b)=>(+a.cal||0)-(+b.cal||0));
+   if(coffee){
+    for(let i=0;i<sweets.length;i++){
+      candidates.push(makeSuggestion([coffee,sweets[i]],mood,rem));
+      for(let j=i;j<sweets.length;j++){
+       candidates.push(makeSuggestion([coffee,sweets[i],sweets[j]],mood,rem));
+      }
+    }
+   }
+ }else{
+   const base=snackBase(mood);
+   base.forEach(f=>candidates.push(makeSuggestion([f],mood,rem)));
+   const small=base.filter(f=>(+f.cal||0)<=120);
+   for(let i=0;i<small.length;i++){
+     for(let j=i;j<small.length;j++){
+       candidates.push(makeSuggestion([small[i],small[j]],mood,rem));
+       for(let k=j;k<small.length;k++){
+         candidates.push(makeSuggestion([small[i],small[j],small[k]],mood,rem));
+       }
+     }
+   }
+ }
+ const seen=new Set();
+ candidates=candidates.filter(s=>{
+   if(s.total>limit)return false;
+   if(s.total<=0)return false;
+   const key=comboKey(s.items);
+   if(seen.has(key))return false;
+   seen.add(key);
+   return true;
+ });
+ candidates.sort((a,b)=>{
+   const scoreA=Math.abs(rem-a.total)+(a.over?8:0)+(a.items.length===1?12:0);
+   const scoreB=Math.abs(rem-b.total)+(b.over?8:0)+(b.items.length===1?12:0);
+   return scoreA-scoreB;
+ });
+ return candidates.slice(0,3);
+}
+function showSnackIdeas(mood){
+ const rem=dayGoal()-calc().cal;
+ const label={sweet:"מתוק",salty:"מלוח",coffee:"קפה ומשהו",any:"לא יודעת"}[mood]||"";
+ const ideas=snackIdeas(mood);
+ const cards=ideas.length?`<div class=snackList>${ideas.map((s,i)=>`<div class=snackCard><div class=snackTop><div class=snackName>${esc(s.name)}</div><div class=snackCal>${n(s.total)} קל׳</div></div>${s.over?'<span class=snackOver>טיפונת מעל</span>':''}<button class=primary style="width:100%;margin-top:11px" onclick="confirmSnack('${s.id}')">בא לי את זה</button></div>`).join("")}</div>`:`<div class=snackEmpty>היום כמעט סגור. נשמור את הקרייבינג למחר</div>`;
+ window.__snackIdeas=ideas;
+ sheet(`<div class=shtitle>נשנושימי</div><div class=shsub>${label} · נשארו לך ${n(Math.max(0,rem))} קל׳</div>${cards}<button class=quiet style="width:100%;margin-top:12px" onclick=openNashnoshimi()>חזרה לחשקים</button>`);
+}
+function confirmSnack(sid){
+ const s=(window.__snackIdeas||[]).find(x=>x.id===sid); if(!s)return;
+ sheet(`<div class=shtitle>להוסיף ליומן?</div><div class=shsub>${esc(s.name)} · ${n(s.total)} קל׳</div><div class=tw><button class=primary onclick="addSnackSuggestion('${sid}')">יאללה, זה מה שאני אוכלת</button><button class=secondary onclick=hideSheet()>רגע, לא</button></div>`);
+ window.__pendingSnack=s;
+}
+function addSnackSuggestion(sid){
+ const s=window.__pendingSnack && window.__pendingSnack.id===sid ? window.__pendingSnack : (window.__snackIdeas||[]).find(x=>x.id===sid);
+ if(!s)return;
+ const d=today(); if(!S.logs[d])S.logs[d]=[];
+ const grouped={};
+ s.items.forEach(f=>{
+   if(!grouped[f.id])grouped[f.id]={f,count:0};
+   grouped[f.id].count++;
+ });
+ Object.values(grouped).forEach(({f,count})=>{
+   const q=count;
+   S.logs[d].push({id:uid("e"),time:tnow(),name:(q>1?`${f.name} ×${q}`:f.name)+" · מנשנושימי",cal:(+f.cal||0)*q,prot:(+f.prot||0)*q,qty:q,emoji:f.emoji||emojiFor(f.name),foodId:f.id,from:"נשנושימי"});
+   S.usage[f.id]=(S.usage[f.id]||0)+q;
+ });
+ save();hideSheet();show("today");toast("נכנס ליומן ✓");
+}
+
 function renderToday(){
  const el=document.getElementById("s-today");
  if(fri()){el.innerHTML=fridayHtml();setTimeout(drawChart,80);return}
  if(rest()){el.innerHTML=`${header()}<div class="card state"><div class="stateicon">🌿</div><div class="statetitle">יום מנוחה</div><div class="statesub">היום לא נספר. חוזרות מחר בלי דרמה.</div><button class="openquiet" onclick="unrest()">חזרה לספירה</button></div>`;return}
  if(closed()){el.innerHTML=closedHtml();return}
  const d=today(), c=calc(), goal=dayGoal(), rem=goal-c.cal, pct=Math.min(100,Math.max(0,c.cal/goal*100)), over=c.cal>goal, recent=[...dayLog()].reverse().slice(0,3);
- el.innerHTML=`${header()}<div class="goalLine">יעד היום: <b>${goal}</b> קל׳ · <button class="link" onclick="goalSheet()">שינוי</button></div><div class="card hero"><div class="label">נשאר להיום</div><div class="remain">${n(Math.max(0,rem))}</div><div class="substats"><span>אכלת ${n(c.cal)}</span><span>·</span><span>חלבון ${n(c.prot)}/${S.proteinGoal}</span></div><div class="bar"><div class="fill ${over?"over":""}" style="width:${pct}%"></div></div><div class="over" style="display:${over?"block":"none"}">חריגה של ${n(c.cal-goal)} קל׳</div></div><div class="quickgrid"><button class="quick" onclick="goAdd()"><span>＋</span>אוכל</button><button class="quick" onclick="show('add')"><span>★</span>מועדפים</button><button class="quick" onclick="goImageAdd()"><span>📷</span>תמונה</button></div><div class="card"><div class="section"><div class="title">מה אכלת לאחרונה</div><button class="small" onclick="fullLog()">הצג הכול</button></div>${recent.length?recent.map(e=>row(e)).join(""):'<div class="empty">עדיין לא הוספת אוכל היום</div>'}</div><div class="actions"><button class="primary" onclick="closeDay()">מספיק להיום</button><button class="quiet" onclick="restConfirm()">עזבי, היום לא</button></div>`;
+ el.innerHTML=`${header()}<div class="goalLine">יעד היום: <b>${goal}</b> קל׳ · <button class="link" onclick="goalSheet()">שינוי</button></div><div class="card hero"><div class="label">נשאר להיום</div><div class="remain">${n(Math.max(0,rem))}</div><div class="substats"><span>אכלת ${n(c.cal)}</span><span>·</span><span>חלבון ${n(c.prot)}/${S.proteinGoal}</span></div><div class="bar"><div class="fill ${over?"over":""}" style="width:${pct}%"></div></div><div class="over" style="display:${over?"block":"none"}">חריגה של ${n(c.cal-goal)} קל׳</div></div><div class="quickgrid"><button class="quick" onclick="goAdd()"><span>＋</span>אוכל</button><button class="quick" onclick="show('add')"><span>★</span>מועדפים</button><button class="quick" onclick="goImageAdd()"><span>📷</span>תמונה</button><button class="quick" onclick="openNashnoshimi()"><span>🍪</span>נשנושימי</button></div><div class="card"><div class="section"><div class="title">מה אכלת לאחרונה</div><button class="small" onclick="fullLog()">הצג הכול</button></div>${recent.length?recent.map(e=>row(e)).join(""):'<div class="empty">עדיין לא הוספת אוכל היום</div>'}</div><div class="actions"><button class="primary" onclick="closeDay()">מספיק להיום</button><button class="quiet" onclick="restConfirm()">עזבי, היום לא</button></div>`;
 }
 function closedHtml(){const c=calc(), goal=dayGoal(), rem=goal-c.cal;let msg="יום מאוזן. סוגרות כאן.";if(rem>300)msg=`נשארו ${n(rem)} קל׳. שימי לב שלא סגרת מוקדם מדי.`;else if(rem>=0&&rem<=100)msg="סגרת קרוב ליעד. יפה.";else if(rem<0)msg=`חרגת ב־${n(Math.abs(rem))} קל׳. מחר חוזרות למסגרת.`;return `${header()}<div class="card state"><div class="stateicon">✦</div><div class="statetitle">מספיק להיום</div><div class="sum"><div class="sumbox"><div class="sumv">${n(c.cal)}</div><div class="suml">אכלת</div></div><div class="sumbox"><div class="sumv">${n(Math.max(0,rem))}</div><div class="suml">נשאר</div></div><div class="sumbox"><div class="sumv">${n(c.prot)}/${S.proteinGoal}</div><div class="suml">חלבון</div></div></div><div class="note">${msg}</div><button class="openquiet" onclick="reopen()">פתחי שוב את היום</button></div>`}
 function fridayHtml(){const w=S.weights.find(x=>x.date===today());if(!w)return `${header()}<div class="card state"><div class="stateicon">✦</div><div class="statetitle">שישי שקילה</div><div class="statesub">רגע בדיקה קטן ואז משחררות.</div><div class="tw"><input id="wInp" class="input" type="number" step="0.1" placeholder="58.3"><button class="primary" onclick="saveWeight()">שמרי שקילה</button></div></div>`;const sm=wSummary(w);return `${header()}<div class="card state"><div class="statetitle">השבוע שלך במספרים</div><div class="big">${sm.main}</div><div class="metric">משקל היום: ${w.weight} ק״ג</div><div class="metric">${sm.remain}</div><div class="metric">${sm.total}</div><div class="note">${sm.note}</div></div><div class="card"><div class="title">שקילות שישי</div><canvas id="canvas"></canvas></div><button class="primary" style="width:100%" onclick="sheet('<div class=shtitle>שקילה נשמרה</div><div class=shsub>היום לא סופרים.</div><button class=primary style=width:100% onclick=hideSheet()>סגור</button>')">סיימתי להיום</button>`}
