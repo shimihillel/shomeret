@@ -226,6 +226,36 @@ function comboKey(items){
  items.forEach(f=>counts[f.id]=(counts[f.id]||0)+1);
  return Object.keys(counts).sort().map(k=>k+":"+counts[k]).join("|");
 }
+function snackType(f){
+ if(isCoffee(f))return "coffee";
+ if(isSweet(f))return "sweet";
+ if(isSalty(f))return "salty";
+ return "other";
+}
+function snackScore(s,rem){
+ return Math.abs(rem-s.total)+(s.over?8:0)+(s.items.length===1?12:0);
+}
+function hasDuplicates(items){
+ const ids=items.map(f=>f.id);
+ return new Set(ids).size!==ids.length;
+}
+function uniqueCategoryPick(candidates,rem){
+ const sorted=[...candidates].sort((a,b)=>snackScore(a,rem)-snackScore(b,rem));
+ const picked=[], usedCats=new Set();
+ for(const s of sorted){
+   const cat=s.primaryCat||snackCat(s.items[0])||snackType(s.items[0]);
+   if(!usedCats.has(cat)){
+     picked.push(s);
+     usedCats.add(cat);
+   }
+   if(picked.length===3)break;
+ }
+ for(const s of sorted){
+   if(picked.length===3)break;
+   if(!picked.find(x=>comboKey(x.items)===comboKey(s.items)))picked.push(s);
+ }
+ return picked.slice(0,3);
+}
 function snackIdeas(mood){
  const rem=dayGoal()-calc().cal, limit=rem+50;
  let candidates=[];
@@ -235,19 +265,36 @@ function snackIdeas(mood){
    if(coffee){
     for(let i=0;i<sweets.length;i++){
       candidates.push(makeSuggestion([coffee,sweets[i]],mood,rem));
-      for(let j=i;j<sweets.length;j++){
-       candidates.push(makeSuggestion([coffee,sweets[i],sweets[j]],mood,rem));
-      }
     }
+   }
+ }else if(mood==="any"){
+   const base=snackBase("any");
+   base.forEach(f=>{
+     const s=makeSuggestion([f],mood,rem);
+     s.primaryCat=snackCat(f)||snackType(f);
+     candidates.push(s);
+   });
+   const small=base.filter(f=>(+f.cal||0)<=120);
+   for(let i=0;i<small.length;i++){
+     for(let j=i+1;j<small.length;j++){
+       const s=makeSuggestion([small[i],small[j]],mood,rem);
+       s.primaryCat=snackCat(small[i])||snackType(small[i]);
+       candidates.push(s);
+       for(let k=j+1;k<small.length;k++){
+         const s3=makeSuggestion([small[i],small[j],small[k]],mood,rem);
+         s3.primaryCat=snackCat(small[i])||snackType(small[i]);
+         candidates.push(s3);
+       }
+     }
    }
  }else{
    const base=snackBase(mood);
    base.forEach(f=>candidates.push(makeSuggestion([f],mood,rem)));
    const small=base.filter(f=>(+f.cal||0)<=120);
    for(let i=0;i<small.length;i++){
-     for(let j=i;j<small.length;j++){
+     for(let j=i+1;j<small.length;j++){
        candidates.push(makeSuggestion([small[i],small[j]],mood,rem));
-       for(let k=j;k<small.length;k++){
+       for(let k=j+1;k<small.length;k++){
          candidates.push(makeSuggestion([small[i],small[j],small[k]],mood,rem));
        }
      }
@@ -257,16 +304,14 @@ function snackIdeas(mood){
  candidates=candidates.filter(s=>{
    if(s.total>limit)return false;
    if(s.total<=0)return false;
+   if(hasDuplicates(s.items))return false;
    const key=comboKey(s.items);
    if(seen.has(key))return false;
    seen.add(key);
    return true;
  });
- candidates.sort((a,b)=>{
-   const scoreA=Math.abs(rem-a.total)+(a.over?8:0)+(a.items.length===1?12:0);
-   const scoreB=Math.abs(rem-b.total)+(b.over?8:0)+(b.items.length===1?12:0);
-   return scoreA-scoreB;
- });
+ if(mood==="any")return uniqueCategoryPick(candidates,rem);
+ candidates.sort((a,b)=>snackScore(a,rem)-snackScore(b,rem));
  return candidates.slice(0,3);
 }
 function showSnackIdeas(mood){
